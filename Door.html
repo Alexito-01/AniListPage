@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AniListPage</title>
+  <style>
+  .door {
+     height: 500px;
+     width: 300px;
+  }
+</style>
+<script>
+  var hoverIMG = 0;
+  var clickIMG = 0;
+
+  function resets(x) {
+    if (clickIMG == 0) {
+    x.src = "https://i.imgur.com/uTWHDN9.png";}
+    else if (clickIMG == 1) {
+    return;
+    }
+  }
+
+  function hovers(x) {
+    if (hoverIMG == 0) {
+      x.src = "https://i.imgur.com/FrMKMIU.png";
+    } else if (hoverIMG == 1) {
+      return;
+    }
+  }
+
+  function clicks(x) {
+    x.src = "https://i.imgur.com/CJAORLd.png";
+
+    hoverIMG = 1;
+    clickIMG = 1;
+    setTimeout(resets(this), 400);
+    return;
+  }
+
+</script>
+</head>
+<body>
+  <img class="door" src="https://i.imgur.com/uTWHDN9.png" onmouseover="hovers(this)" onclick="clicks(this)" onmouseout="resets(this)">
+</body>
+</html>
